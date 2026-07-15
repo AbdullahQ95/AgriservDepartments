@@ -1,4 +1,4 @@
-# AgriServ Departments
+# Agri Departments
 
 Receive and sync department updates from the AgriServ central system into your Laravel application.
 
@@ -10,7 +10,7 @@ Receive and sync department updates from the AgriServ central system into your L
 ## Installation
 
 ```bash
-composer require agriserv/departments
+composer require agri/departments
 ```
 
 Publish the config file:
@@ -36,6 +36,7 @@ POST /api/departments/sync
 The central AgriServ system calls this endpoint whenever a department's `manager_id` changes, passing the department `key` and the new `manager_id`.
 
 **Request:**
+
 ```
 POST /api/departments/sync
 X-Token: your-secret-key
@@ -57,7 +58,7 @@ X-Token: your-secret-key
 
 ## Handling the Sync
 
-The package does **not** manage your database. You are responsible for handling how the department is updated by extending the base controller.
+The package does **not** manage your database. You are responsible for updating the department by extending the base controller.
 
 **1. Create your controller:**
 
@@ -66,7 +67,7 @@ The package does **not** manage your database. You are responsible for handling 
 
 namespace App\Http\Controllers;
 
-use Agriserv\Departments\Http\Controllers\DepartmentSyncController as BaseController;
+use Agri\Departments\Http\Controllers\DepartmentSyncController as BaseController;
 use App\Models\Department;
 
 class DepartmentSyncController extends BaseController
@@ -96,7 +97,7 @@ return [
     'secret_token' => env('SSO_SECRET_KEY'),
 
     // The controller that handles the sync request.
-    'controller' => \Agriserv\Departments\Http\Controllers\DepartmentSyncController::class,
+    'controller' => \Agri\Departments\Http\Controllers\DepartmentSyncController::class,
 ];
 ```
 
