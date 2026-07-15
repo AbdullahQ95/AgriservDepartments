@@ -1,5 +1,5 @@
 {
-    "name": "agriserv/departments",
+    "name": "agri/departments",
     "description": "Sync departments from the AgriServ central system to your Laravel application",
     "type": "library",
     "license": "MIT",
